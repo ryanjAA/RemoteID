@@ -60,10 +60,6 @@ uint8_t Transport::arm_status_check(const char *&reason)
         ret += "SELF_ID ";
     }
 
-    if (last_operator_id_ms == 0 || now_ms - last_operator_id_ms > max_age_other_ms) {
-        ret += "OP_ID ";
-    }
-
     if (last_system_ms == 0 || now_ms - last_system_ms > max_age_location_ms) {
         // we use location age limit for system as the operator location needs to come in as fast
         // as the vehicle location for FAA standard
